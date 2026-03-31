@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('city');
+        Schema::table('libraries', function (Blueprint $table) {
+            $table->dropForeign(['student_id']);
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user');
+        Schema::table('libraries', function (Blueprint $table) {
+            //
+        });
     }
 };
